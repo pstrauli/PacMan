@@ -16,6 +16,8 @@ class Pacman {
 
       if (collisionItem !== null && collisionItem.type === 'wall') {
         return;
+      } else if (collisionItem !== null && collisionItem.type === 'apple') {
+        this.stage.removeEntity(collisionItem);
       }
 
       this.element.style.left = `${this.pos[0] + TILE_SIZE}px`;
@@ -28,6 +30,8 @@ class Pacman {
 
       if (collisionItem !== null && collisionItem.type === 'wall') {
         return;
+      } else if (collisionItem !== null && collisionItem.type === 'apple') {
+        this.stage.removeEntity(collisionItem);
       }
 
       this.element.style.left = `${this.pos[0] - TILE_SIZE}px`;
@@ -40,6 +44,8 @@ class Pacman {
 
       if (collisionItem !== null && collisionItem.type === 'wall') {
         return;
+      } else if (collisionItem !== null && collisionItem.type === 'apple') {
+        this.stage.removeEntity(collisionItem);
       }
 
       this.element.style.bottom = `${this.pos[1] - TILE_SIZE}px`;
@@ -52,6 +58,8 @@ class Pacman {
 
       if (collisionItem !== null && collisionItem.type === 'wall') {
         return;
+      } else if (collisionItem !== null && collisionItem.type === 'apple') {
+        this.stage.removeEntity(collisionItem);
       }
 
       this.element.style.bottom = `${this.pos[1] + TILE_SIZE}px`;

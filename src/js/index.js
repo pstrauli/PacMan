@@ -2,7 +2,7 @@ const TILE_SIZE = 85;
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const stage = new Stage(7, 7);
+  const stage = new Stage(10, 7);
 
   const app = document.querySelector('#app');
 

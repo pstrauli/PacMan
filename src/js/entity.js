@@ -23,7 +23,9 @@ class Entity {
     return this.element;
   }
 
-
+  unmount(parentElement) {
+    parentElement.removeChild(this.element);
+  }
 
   mount(parentElement) {
     this.render();

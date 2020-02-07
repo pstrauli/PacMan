@@ -37,6 +37,10 @@ class Stage {
     const pacman = new Pacman(1, 1, this.width, this.height, this);
     const wall = new Entity(0, 1, 'wall');
     const apple = new Entity(1, 2, 'apple');
+    const apple2 = new Entity(1, 4, 'apple');
+    const apple3 = new Entity(5, 5, 'apple');
+    const apple4 = new Entity(4, 0, 'apple');
+    const apple5 = new Entity(6, 3, 'apple');
     const bomb = new Entity(1, 0, 'bomb');
     const wall2 = new Entity(2, 1, 'wall');
     const wall3 = new Entity(3, 2, 'wall');
@@ -53,6 +57,10 @@ class Stage {
     pacman.mount(this.element);
     wall.mount(this.element);
     apple.mount(this.element);
+    apple2.mount(this.element);
+    apple3.mount(this.element);
+    apple4.mount(this.element);
+    apple5.mount(this.element);
     bomb.mount(this.element);
     wall2.mount(this.element);
     wall3.mount(this.element);
@@ -80,12 +88,24 @@ class Stage {
     this.entities.push(wall10);
     this.entities.push(wall11);
     this.entities.push(wall12);
+    this.entities.push(apple2);
+    this.entities.push(apple3);
+    this.entities.push(apple4);
+    this.entities.push(apple5);
 
     console.log(pacman);
 
-
-
     return this.element;
+  }
+
+  removeEntity(entity) {
+    entity.unmount(this.element);
+    let index = this.entities.indexOf(entity);
+    this.entities.splice(index, 1);
+
+    let scoreEl = document.querySelector('#score');
+    scoreEl.textContent = Number(scoreEl.textContent) + 1;
+
   }
 
   mount(parent) {
