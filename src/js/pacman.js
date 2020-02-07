@@ -1,10 +1,11 @@
 
 class Pacman {
-  constructor (x, y, maxX, maxY) {
+  constructor(x, y, maxX, maxY, stage) {
     this.pos = [TILE_SIZE * x, TILE_SIZE * y];
     this.mouth = 'open';
     this.maxX = maxX - TILE_SIZE;
     this.maxY = maxY - TILE_SIZE;
+    this.stage = stage;
   }
 
   move(direction) {
@@ -28,7 +29,7 @@ class Pacman {
       this.element.style.bottom = `${this.pos[1] + TILE_SIZE}px`;
       this.pos[1] += TILE_SIZE;
       this.element.style.backgroundPositionY = '-255px';
-    }  
+    }
   }
 
 
@@ -38,13 +39,13 @@ class Pacman {
     this.element.style.left = `${this.pos[0]}px`;
     this.element.style.bottom = `${this.pos[1]}px`;
     document.addEventListener('keydown', (event) => {
-      if(event.key === 'ArrowRight') {
+      if (event.key === 'ArrowRight') {
         this.move('right');
-      }else if (event.key === 'ArrowLeft'){
+      } else if (event.key === 'ArrowLeft') {
         this.move('left');
-      }else if (event.key === 'ArrowDown'){
+      } else if (event.key === 'ArrowDown') {
         this.move('down');
-      }else if (event.key === 'ArrowUp'){
+      } else if (event.key === 'ArrowUp') {
         this.move('up');
       }
     });
