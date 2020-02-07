@@ -9,7 +9,6 @@ class Pacman {
   }
 
   move(direction) {
-    // const TILE_SIZE = 85;
     if (direction === 'right' && this.pos[0] < this.maxX) {
       this.element.style.left = `${this.pos[0] + TILE_SIZE}px`;
       this.pos[0] += TILE_SIZE;
