@@ -1,25 +1,33 @@
 
 class Pacman {
-  constructor () {
-    this.posX = 0;
-    this.posY = 0;
+  constructor (x, y, maxX, maxY) {
+    this.pos = [TILE_SIZE * x, TILE_SIZE * y];
     this.mouth = 'open';
+    this.maxX = maxX - TILE_SIZE;
+    this.maxY = maxY - TILE_SIZE;
   }
 
   move(direction) {
-    const TILE_SIZE = 85;
-    if (direction === 'right') {
-      this.element.style.left = `${TILE_SIZE + this.posX}px`;
-      this.posX += TILE_SIZE;
-    } else if (direction === 'left') {
-      this.element.style.right = `${TILE_SIZE + this.posX}px`;
-      this.posX += TILE_SIZE;
-    } else if (direction === 'down') {
-      this.element.style.top = `${TILE_SIZE + this.posY}px`;
-      this.posY += TILE_SIZE;
-    } else if (direction === 'up') {
-      this.element.style.bottom = `${TILE_SIZE + this.posY}px`;
-      this.posY += TILE_SIZE;
+    // const TILE_SIZE = 85;
+    if (direction === 'right' && this.pos[0] < this.maxX) {
+      this.element.style.left = `${this.pos[0] + TILE_SIZE}px`;
+      this.pos[0] += TILE_SIZE;
+      this.element.style.backgroundPositionY = '0px';
+
+    } else if (direction === 'left' && this.pos[0] > 0) {
+      this.element.style.left = `${this.pos[0] - TILE_SIZE}px`;
+      this.pos[0] -= TILE_SIZE;
+      this.element.style.backgroundPositionY = '-85px';
+
+    } else if (direction === 'down' && this.pos[1] > 0) {
+      this.element.style.bottom = `${this.pos[1] - TILE_SIZE}px`;
+      this.pos[1] -= TILE_SIZE;
+      this.element.style.backgroundPositionY = '-170px';
+
+    } else if (direction === 'up' && this.pos[1] < this.maxY) {
+      this.element.style.bottom = `${this.pos[1] + TILE_SIZE}px`;
+      this.pos[1] += TILE_SIZE;
+      this.element.style.backgroundPositionY = '-255px';
     }  
   }
 
@@ -27,7 +35,8 @@ class Pacman {
   render() {
     this.element = document.createElement('div');
     this.element.className = 'entity entity--pac pacboy-active-light';
-
+    this.element.style.left = `${this.pos[0]}px`;
+    this.element.style.bottom = `${this.pos[1]}px`;
     document.addEventListener('keydown', (event) => {
       if(event.key === 'ArrowRight') {
         this.move('right');
