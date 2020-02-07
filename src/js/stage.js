@@ -10,7 +10,7 @@ class Stage {
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;
 
-    const pacman = new Pacman(1,1);
+    const pacman = new Pacman(1,1, this.width, this.height);
 
     pacman.mount(this.element);
 
