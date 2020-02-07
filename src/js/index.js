@@ -1,5 +1,4 @@
-let xpos = 0;
-const TILE_SIZE = 85;
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // console.log('it works');
