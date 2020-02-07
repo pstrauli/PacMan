@@ -21,10 +21,10 @@ class Stage {
 
     if (isFound === true) {
       console.log(foundEntity);
-      /* return foundEntity; */
+      return foundEntity;
     } else {
       console.log('null');
-      /* return null; */
+      return null;
     }
   }
 
@@ -38,7 +38,7 @@ class Stage {
     const wall = new Entity(0, 1, 'wall');
     const apple = new Entity(1, 2, 'apple');
     const bomb = new Entity(1, 0, 'bomb');
-    const wall2 = new Entity(2, 1, 'wall');
+    const wall2 = new Entity(2, 1, 'apple');
 
     pacman.mount(this.element);
     wall.mount(this.element);

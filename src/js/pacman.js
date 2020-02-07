@@ -14,7 +14,7 @@ class Pacman {
 
       let collisionItem = this.stage.collisionDetection(this.pos[0] + TILE_SIZE, this.pos[1]);
 
-      if (collisionItem !== null) {
+      if (collisionItem !== null && collisionItem.type === 'wall') {
         return;
       }
 
@@ -26,7 +26,7 @@ class Pacman {
 
       let collisionItem = this.stage.collisionDetection(this.pos[0] - TILE_SIZE, this.pos[1]);
 
-      if (collisionItem !== null) {
+      if (collisionItem !== null && collisionItem.type === 'wall') {
         return;
       }
 
@@ -38,7 +38,7 @@ class Pacman {
 
       let collisionItem = this.stage.collisionDetection(this.pos[0], this.pos[1] - TILE_SIZE);
 
-      if (collisionItem !== null) {
+      if (collisionItem !== null && collisionItem.type === 'wall') {
         return;
       }
 
@@ -50,7 +50,7 @@ class Pacman {
 
       let collisionItem = this.stage.collisionDetection(this.pos[0], this.pos[1] + TILE_SIZE);
 
-      if (collisionItem !== null) {
+      if (collisionItem !== null && collisionItem.type === 'wall') {
         return;
       }
 
