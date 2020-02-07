@@ -11,15 +11,22 @@ class Pacman {
     if (direction === 'right') {
       this.element.style.left = `${TILE_SIZE + this.posX}px`;
       this.posX += TILE_SIZE;
+      this.element.style.backgroundPositionY = '0px';
+
     } else if (direction === 'left') {
       this.element.style.right = `${TILE_SIZE + this.posX}px`;
       this.posX += TILE_SIZE;
+      this.element.style.backgroundPositionY = '-85px';
+
     } else if (direction === 'down') {
       this.element.style.top = `${TILE_SIZE + this.posY}px`;
       this.posY += TILE_SIZE;
+      this.element.style.backgroundPositionY = '-170px';
+
     } else if (direction === 'up') {
       this.element.style.bottom = `${TILE_SIZE + this.posY}px`;
       this.posY += TILE_SIZE;
+      this.element.style.backgroundPositionY = '-255px';
     }  
   }
 
