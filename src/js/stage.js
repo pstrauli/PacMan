@@ -7,8 +7,8 @@ class Stage {
 
   collisionDetection(x, y) {
 
-    x = x * TILE_SIZE;
-    y = y * TILE_SIZE;
+    /*  x = x * TILE_SIZE;
+     y = y * TILE_SIZE; */
     let isFound = false;
     let foundEntity = '';
 
@@ -21,10 +21,10 @@ class Stage {
 
     if (isFound === true) {
       console.log(foundEntity);
-      return foundEntity;
+      /* return foundEntity; */
     } else {
       console.log('null');
-      return null;
+      /* return null; */
     }
   }
 
@@ -34,9 +34,9 @@ class Stage {
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;
 
-    const pacman = new Pacman(1, 1, this.width, this.height, this.element);
+    const pacman = new Pacman(1, 1, this.width, this.height, this);
     const wall = new Entity(0, 1, 'wall');
-    const apple = new Entity(0, 2, 'apple');
+    const apple = new Entity(1, 2, 'apple');
     const bomb = new Entity(1, 0, 'bomb');
     const wall2 = new Entity(2, 1, 'wall');
 

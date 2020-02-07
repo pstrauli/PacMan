@@ -9,22 +9,51 @@ class Pacman {
   }
 
   move(direction) {
+
     if (direction === 'right' && this.pos[0] < this.maxX) {
+
+      let collisionItem = this.stage.collisionDetection(this.pos[0] + TILE_SIZE, this.pos[1]);
+
+      if (collisionItem !== null) {
+        return;
+      }
+
       this.element.style.left = `${this.pos[0] + TILE_SIZE}px`;
       this.pos[0] += TILE_SIZE;
       this.element.style.backgroundPositionY = '0px';
 
     } else if (direction === 'left' && this.pos[0] > 0) {
+
+      let collisionItem = this.stage.collisionDetection(this.pos[0] - TILE_SIZE, this.pos[1]);
+
+      if (collisionItem !== null) {
+        return;
+      }
+
       this.element.style.left = `${this.pos[0] - TILE_SIZE}px`;
       this.pos[0] -= TILE_SIZE;
       this.element.style.backgroundPositionY = '-85px';
 
     } else if (direction === 'down' && this.pos[1] > 0) {
+
+      let collisionItem = this.stage.collisionDetection(this.pos[0], this.pos[1] - TILE_SIZE);
+
+      if (collisionItem !== null) {
+        return;
+      }
+
       this.element.style.bottom = `${this.pos[1] - TILE_SIZE}px`;
       this.pos[1] -= TILE_SIZE;
       this.element.style.backgroundPositionY = '-170px';
 
     } else if (direction === 'up' && this.pos[1] < this.maxY) {
+
+      let collisionItem = this.stage.collisionDetection(this.pos[0], this.pos[1] + TILE_SIZE);
+
+      if (collisionItem !== null) {
+        return;
+      }
+
       this.element.style.bottom = `${this.pos[1] + TILE_SIZE}px`;
       this.pos[1] += TILE_SIZE;
       this.element.style.backgroundPositionY = '-255px';
